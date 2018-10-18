@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Psychic Game Homework</title>
+    </head>
+
+<body>
+    <h1>The Psychic Game</h1>
+
+    <p>Guess what letter I'm thinking of</p>
+
+    <P>Wins: (# of times the user has guessed the letter correctly</P>
+    <p>Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)</p>
+    <p>Guesses Left: (# of guesses left. This will update)</p>
+    <p>Your Guesses So Far: (the specific letters that the user typed. 
+        Display these until the user either wins or loses.)</p>
+    
+
+<script type = "text/javascript">
+
+
+    // computer thinks of random key
+    // takes in user's guess
+    // check if user guess equals computer's thought
+    // update stats (Wins, Losses, Guesses left (starts with 9), Your Guesses so far)
+    // ---- game resets, loss is tallied, and computer chooses new key when guesses run out to 0
+
+    var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+"q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+    var computerThought = alphabet[Math.floor(Math.random()*alphabet.length)];
+    console.log(computerThought);
+
+    document.onkeyup = function() {
+        var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+        console.log(userGuess);
+    }
+
+
+    </script>
+</body>
+</html>
