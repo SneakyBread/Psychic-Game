@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Psychic Game Homework</title>
+        <!-- insert link to external javascript file here -->
     </head>
 
 <body>
@@ -9,11 +10,15 @@
 
     <p>Guess what letter I'm thinking of</p>
 
-    <P>Wins: (# of times the user has guessed the letter correctly</P>
-    <p>Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)</p>
-    <p>Guesses Left: (# of guesses left. This will update)</p>
-    <p>Your Guesses So Far: (the specific letters that the user typed. 
-        Display these until the user either wins or loses.)</p>
+
+    <!-- Wins: (# of times the user has guessed the letter correctly
+    Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
+    Guesses left: (# of guesses left. This will update)
+    Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.) -->
+    <P id="wins">Wins:</P>
+    <p id="losses">Losses:</p>
+    <p id="guesses_left">Guesses Left:</p>
+    <p id="guesses_so_far">Your Guesses So Far:</p>
     
 
 <script type = "text/javascript"> 
@@ -30,32 +35,39 @@
 
     // counters?
     var wins = 0;
+        console.log("wins " + wins);
     var losses = 0;
     var guesses = 9;
 
-    var computerThought = alphabet[Math.floor(Math.random()*alphabet.length)];
-    console.log(computerThought);
+    document.querySelector(#"wins").innerHTML = 
+
 
     document.onkeyup = function() {
+        var computerThought = alphabet[Math.floor(Math.random()*alphabet.length)];
+        console.log(computerThought);
+
         var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
         console.log(userGuess);
         // print out userGuess to html;
-    }
 
-    if (userGuess == computerThought) {
-        // raise wins by 1
-        // computer chooses new letter
-        // guesses left resets to 9 
-    }
+        if (userGuess == computerThought) {
+            wins++;
+            // raise wins by 1
+            // computer chooses new letter
+            // guesses left resets to 9 
+        }
 
-    else {
-        // guesses left ticks down
-    }
+        else {
+            guesses--;
+            console.log(guesses);
+            // guesses left ticks down
+        }
 
-    if (guesses = 0) {
-        // raise losses by 1
-    }
+        if (guesses = 0) {
+            // raise losses by 1
+        }
 
+    }
 
 
 
