@@ -21,18 +21,12 @@ document.onkeyup = function() {
         wins++;
         document.getElementById("wins").innerHTML = "Wins: " + wins;
         document.getElementById("guesses_so_far").innerHTML = "Your Guesses So Far: ";
-        // reset userguess so far
-
-        // raise wins by 1
-        // computer chooses new letter
-        // guesses left resets to 9 
     }
 
     else {
         document.getElementById("guesses_left").innerHTML = "Guesses Left: " + (guesses - 1);
         guesses--;
         console.log(guesses);
-        // guesses left ticks down
     }
 
     if (guesses == 0) {
@@ -40,6 +34,5 @@ document.onkeyup = function() {
         document.getElementById("losses").innerHTML = "Losses: " + losses;
         guesses = 10;
         letters = [];
-        // raise losses by 1
     }
 }
