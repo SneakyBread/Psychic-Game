@@ -3,6 +3,7 @@
     <head>
         <title>Psychic Game Homework</title>
         <!-- insert link to external javascript file here -->
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
     </head>
 
 <body>
@@ -15,13 +16,21 @@
     Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
     Guesses left: (# of guesses left. This will update)
     Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.) -->
-    <P id="wins">Wins:</P>
-    <p id="losses">Losses:</p>
-    <p id="guesses_left">Guesses Left:</p>
-    <p id="guesses_so_far">Your Guesses So Far:</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <p id="wins">Wins: 0</p>
+                <p id="losses">Losses: 0</p>
+                <p id="guesses_left">Guesses Left: 9</p>
+                <p id="guesses_so_far">Your Guesses So Far:</p>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
     
 
-<script type = "text/javascript"> 
+<!-- <script type = "text/javascript"> 
 
 
     // computer thinks of random key
@@ -30,51 +39,53 @@
     // update stats (Wins, Losses, Guesses left (starts with 9), Your Guesses so far)
     // ---- game resets, loss is tallied, and computer chooses new key when guesses run out to 0
 
-    var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
-"q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var alphabet = ["a", "b", "c", "d", "e", "f", 
+    "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+    "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    // counters?
     var wins = 0;
-        console.log("wins " + wins);
     var losses = 0;
     var guesses = 9;
-
-    document.querySelector(#"wins").innerHTML = 
+    var letters = [];
 
 
     document.onkeyup = function() {
         var computerThought = alphabet[Math.floor(Math.random()*alphabet.length)];
         console.log(computerThought);
-
+        
         var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-        console.log(userGuess);
-        // print out userGuess to html;
+        letters.push(userGuess);
+        document.getElementById("guesses_so_far").innerHTML = "Your Guesses So Far: " + letters;
+
 
         if (userGuess == computerThought) {
             wins++;
+            document.getElementById("wins").innerHTML = "Wins: " + wins;
+            document.getElementById("guesses_so_far").innerHTML = "Your Guesses So Far: ";
+            // reset userguess so far
+
             // raise wins by 1
             // computer chooses new letter
             // guesses left resets to 9 
         }
 
         else {
+            document.getElementById("guesses_left").innerHTML = "Guesses Left: " + (guesses - 1);
             guesses--;
             console.log(guesses);
             // guesses left ticks down
         }
 
-        if (guesses = 0) {
+        if (guesses == 0) {
+            losses++;
+            document.getElementById("losses").innerHTML = "Losses: " + losses;
+            guesses = 10;
+            letters = [];
             // raise losses by 1
         }
 
     }
 
-
-
-
-
-
-
-    </script>
+    </script> -->
 </body>
 </html>
